@@ -1,3 +1,2 @@
 # rafaels-new-repo
-Hello World!
-Let's Fight! 
+Hello World! Why are you so mean?
