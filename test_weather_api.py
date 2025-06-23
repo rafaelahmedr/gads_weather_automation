@@ -1,25 +1,35 @@
 import requests
 
-# Replace with your own API key and city
+# Configuration: replace with your own API key and city
 API_KEY = "YOUR_API_KEY_HERE"
 CITY = "Aarhus"
-RAIN_THRESHOLD = 20.0  # mm
+RAIN_THRESHOLD = 20.0  # millimeters
 
-url = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{CITY}/last3days?unitGroup=metric&include=days&elements=datetime,precip,conditions&key={API_KEY}&contentType=json"
+url = (
+    f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/"
+    f"timeline/{CITY}/last3days"
+    f"?unitGroup=metric&include=days&elements=datetime,precip,conditions"
+    f"&key={API_KEY}&contentType=json"
+)
 
-try:
-    response = requests.get(url)
-    response.raise_for_status()
-    data = response.json()
+def fetch_weather_data():
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"API request failed: {e}")
+        return None
 
-    print(f"🌍 City: {CITY}")
-    print("📊 Recent Precipitation (Last 3 Days):\n")
+def analyze_rainfall(data):
+    print(f"City: {CITY}")
+    print("Recent Precipitation (Last 3 Days):\n")
 
     rain_triggered = False
 
     for day in data.get("days", []):
-        date = day.get("datetime")
-        precip = day.get("precip", 0)
+        date = day.get("datetime", "N/A")
+        precip = float(day.get("precip", 0))
         conditions = day.get("conditions", "Unknown")
 
         print(f"{date} - {precip:.1f} mm - {conditions}")
@@ -28,9 +38,14 @@ try:
             rain_triggered = True
 
     if rain_triggered:
-        print("\n✅ Trigger condition MET (Rain ≥ 20 mm)")
+        print("\nTrigger condition MET: Rainfall exceeded threshold.")
     else:
-        print("\n⏸️ Trigger condition NOT met")
+        print("\nTrigger condition NOT met: Rainfall below threshold.")
 
-except requests.exceptions.RequestException as e:
-    print(f"❌ API error: {e}")
+def main():
+    data = fetch_weather_data()
+    if data:
+        analyze_rainfall(data)
+
+if __name__ == "__main__":
+    main()
