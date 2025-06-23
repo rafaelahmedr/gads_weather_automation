@@ -61,8 +61,10 @@ Let the system automatically enable the campaign **only after actual rainfall** 
 
 ## 📬 Contact
 
-**Author**: Rafael Ahmed
-Feel free to fork, extend, or contribute. Open to collaboration and feedback.
+**Author**: Rafael Ahmed  
+📧 Email: [rafaelahmedr@gmail.com](mailto:rafaelahmedr@gmail.com)  
+
+Feel free to fork, extend, or contribute. Open to collaboration and feedback!
 
 ---
 
