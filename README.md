@@ -1,21 +1,27 @@
 # 🌧️ Weather-Based Google Ads Campaign Trigger
 
-This project is a lightweight, JavaScript-based automation script designed to run within the **Google Ads Scripts** environment. It dynamically enables or pauses a campaign based on real-time rainfall data in Denmark, using thresholds aligned with the **Danish Meteorological Institute (DMI)**.
+This project is a lightweight automation system built using **Google Ads Scripts (JavaScript)** to dynamically enable or pause a campaign based on recent rainfall in a selected city. It integrates with the **Visual Crossing Weather API** and applies rainfall thresholds aligned with the **Danish Meteorological Institute (DMI)**.
 
 ---
 
-## 🔍 Project Overview
+## 🔍 Overview
 
-The script pulls precipitation data from **Visual Crossing Weather API** for a specified city (e.g., Aarhus) and checks rainfall levels for the **last 3 days**.
-
-- If **≥ 20 mm** of rain is detected on any of the days → the campaign is **enabled**
-- If **< 20 mm** across all 3 days → the campaign is **paused**
-
-This ensures campaigns only run during weather conditions that align with user context and product relevance.
+This script allows marketers to:
+- Automatically **enable** a campaign if rainfall exceeds a threshold (e.g., 20 mm in a single day)
+- **Pause** the campaign if conditions are dry
+- Ensure ad spend is contextually relevant (e.g., only promote rain gear when it's actually raining)
 
 ---
 
-## 🌦️ Rain Intensity Classifications (DMI)
+## ⚙️ How It Works
+
+1. Fetches the past 3 days of weather data via API
+2. Compares precipitation data to a threshold (default: **20 mm/day**)
+3. Enables or pauses a campaign based on whether rainfall was sufficient
+
+---
+
+## 🌦️ DMI Rain Intensity Reference
 
 | Dansk betegnelse     | English Term        | Defined Intensity             |
 |----------------------|---------------------|-------------------------------|
@@ -25,49 +31,22 @@ This ensures campaigns only run during weather conditions that align with user c
 | Skybrud              | Cloudburst          | ≥ 15 mm in 30 minutes         |
 | Voldsomt skybrud     | Extreme cloudburst  | ≥ 30 mm in 30 minutes         |
 
-This project uses a **20 mm/day threshold** to represent significant rainfall conditions (close to *kraftig regn*), triggering campaign activation when that threshold is exceeded.
-
 ---
 
 ## 📁 Files
 
-- `weather_trigger.js` – Main script file to copy into Google Ads Scripts
-- `README.md` – Project documentation
+- `weather_trigger.js` – The core automation script for Google Ads
+- `test_weather_api.py` – Optional script to test API key and rainfall data in Python
+- `API_SETUP.md` – Instructions on how to get a free Visual Crossing API key
+- `LICENSE` – MIT open-source license
+- `.gitignore` – Standard exclusions
+- `CONTRIBUTING.md` – Guidelines for contributors
 
 ---
 
-## ✅ Benefits
+## 🧪 Optional: Test Your API Key with Python
 
-- **Context-Aware Marketing** – Deliver campaigns when they’re most relevant
-- **Budget Efficiency** – Avoid spending during dry or off-target conditions
-- **Scalable Logic** – Easily adaptable to other cities, thresholds, or weather types (e.g., snow, humidity, temperature)
+To verify your API key or check rainfall levels before using the script in Ads, run the `test_weather_api.py` script.
 
----
-
-## 🔧 Requirements
-
-- A Google Ads account with script access
-- A free API key from [Visual Crossing](https://www.visualcrossing.com/)
-- Basic familiarity with Google Ads Scripts and campaign naming conventions
-
----
-
-## 🧪 Example Use Case
-
-Running a rain gear campaign in Aarhus?  
-Let the system automatically enable the campaign **only after actual rainfall** is measured — keeping your spend aligned with real-world demand.
-
----
-
-## 📬 Contact
-
-**Author**: Rafael Ahmed  
-📧 Email: [rafaelahmedr@gmail.com](mailto:rafaelahmedr@gmail.com)  
-
-Feel free to fork, extend, or contribute. Open to collaboration and feedback!
-
----
-
-## 📄 License
-
-This project is open-source under the **MIT License**. See `LICENSE` for more details.
+```bash
+python test_weather_api.py
