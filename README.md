@@ -1,27 +1,27 @@
 # 🌧️ Weather-Based Google Ads Campaign Trigger
 
-This project is a lightweight automation system built using **Google Ads Scripts (JavaScript)** to dynamically enable or pause a campaign based on recent rainfall in a selected city. It integrates with the **Visual Crossing Weather API** and applies rainfall thresholds aligned with the **Danish Meteorological Institute (DMI)**.
+This project is a lightweight automation system built using **Google Ads Scripts (JavaScript)** to dynamically enable or pause a campaign based on real-time rainfall in a given city. It integrates with the **Visual Crossing Weather API** and follows rainfall thresholds based on the **Danish Meteorological Institute (DMI)**.
 
 ---
 
 ## 🔍 Overview
 
-This script allows marketers to:
-- Automatically **enable** a campaign if rainfall exceeds a threshold (e.g., 20 mm in a single day)
-- **Pause** the campaign if conditions are dry
-- Ensure ad spend is contextually relevant (e.g., only promote rain gear when it's actually raining)
+This script helps marketers:
+- **Enable** campaigns when recent rainfall exceeds a defined threshold (e.g., 20 mm/day)
+- **Pause** campaigns when conditions are dry
+- Spend smarter and deliver more relevant ads based on actual weather events
 
 ---
 
 ## ⚙️ How It Works
 
-1. Fetches the past 3 days of weather data via API
-2. Compares precipitation data to a threshold (default: **20 mm/day**)
-3. Enables or pauses a campaign based on whether rainfall was sufficient
+1. Fetches the past 3 days of rainfall data via Visual Crossing API
+2. Checks if rainfall exceeds the threshold on any day
+3. Enables the campaign if threshold is met, pauses it otherwise
 
 ---
 
-## 🌦️ DMI Rain Intensity Reference
+## 🌦️ Rain Intensity Reference (DMI)
 
 | Dansk betegnelse     | English Term        | Defined Intensity             |
 |----------------------|---------------------|-------------------------------|
@@ -33,20 +33,21 @@ This script allows marketers to:
 
 ---
 
-## 📁 Files
+## 📁 Files Included
 
-- `weather_trigger.js` – The core automation script for Google Ads
-- `test_weather_api.py` – Optional script to test API key and rainfall data in Python
-- `API_SETUP.md` – Instructions on how to get a free Visual Crossing API key
+- `weather_trigger.js` – Core automation script for Google Ads
+- `test_weather_api.py` – Python script to test API key and rainfall data before deployment
+- `API_SETUP.md` – Step-by-step guide to getting a free Visual Crossing API key
+- `CONTRIBUTING.md` – Guidelines for contributing to the project
 - `LICENSE` – MIT open-source license
-- `.gitignore` – Standard exclusions
-- `CONTRIBUTING.md` – Guidelines for contributors
+- `.gitignore` – Git exclusions for local/dev environments
+- `README.md` – This file
 
 ---
 
-## 🧪 Optional: Test Your API Key with Python
+## 🧪 Test Your API Key (Python)
 
-To verify your API key or check rainfall levels before using the script in Ads, run the `test_weather_api.py` script.
+Before using the script in Google Ads, you can test the weather data using:
 
 ```bash
 python test_weather_api.py
