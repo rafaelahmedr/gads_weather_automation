@@ -1,14 +1,12 @@
 /**
  * Weather-Based Campaign Trigger for Google Ads
- * ----------------------------------------------
- * Enables or pauses a specific campaign based on rainfall data
- * from the Visual Crossing Weather API.
- * 
+ * ------------------------------------------------
+ * Enables or pauses a Google Ads campaign based on rainfall data
+ * fetched from the Visual Crossing Weather API.
+ *
  * Logic:
  * - If rainfall ≥ 20 mm on any day in the past 3 days → campaign is ENABLED
  * - Otherwise → campaign is PAUSED
- *
- * 📌 Replace placeholders with your actual API key, city, and campaign name.
  *
  * Author: Rafael Ahmed
  * License: MIT
@@ -16,9 +14,9 @@
  */
 
 function main() {
-  const API_KEY = 'YOUR_API_KEY_HERE';           // ← Replace with your Visual Crossing API key
-  const CITY = 'YOUR_CITY_NAME';                 // ← Replace with your target city (e.g., 'Aarhus')
-  const CAMPAIGN_NAME = 'YOUR_CAMPAIGN_NAME';    // ← Replace with the exact name of your Google Ads campaign
+  const API_KEY = 'YOUR_API_KEY_HERE';           // Replace with your Visual Crossing API key
+  const CITY = 'YOUR_CITY_NAME';                 // Replace with your target city (e.g., 'Aarhus')
+  const CAMPAIGN_NAME = 'YOUR_CAMPAIGN_NAME';    // Replace with the exact name of your Google Ads campaign
   const RAIN_THRESHOLD = 20.0;                   // mm per day – adjust as needed
 
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${CITY}/last3days?unitGroup=metric&include=days&elements=datetime,precip,conditions&key=${API_KEY}&contentType=json`;
@@ -28,7 +26,7 @@ function main() {
     const data = JSON.parse(response.getContentText());
 
     if (!data.days || data.days.length === 0) {
-      Logger.log("⚠️ No weather data found.");
+      Logger.log("No weather data returned from API.");
       return;
     }
 
@@ -37,14 +35,14 @@ function main() {
     for (let i = 0; i < data.days.length; i++) {
       const day = data.days[i];
       const date = day.datetime;
-      const precip = day.precip || 0;
+      const precip = parseFloat(day.precip) || 0;
       const conditions = day.conditions || 'Unknown';
 
-      Logger.log(`📅 ${date}: ${precip.toFixed(1)} mm – ${conditions}`);
+      Logger.log(`Date: ${date}, Precipitation: ${precip.toFixed(1)} mm, Conditions: ${conditions}`);
 
       if (precip >= RAIN_THRESHOLD) {
         rainTriggered = true;
-        break; // Exit loop if one day exceeds the threshold
+        break;
       }
     }
 
@@ -53,21 +51,24 @@ function main() {
       .get();
 
     if (!campaignIterator.hasNext()) {
-      Logger.log(`❌ Campaign "${CAMPAIGN_NAME}" not found.`);
+      Logger.log(`Campaign "${CAMPAIGN_NAME}" not found.`);
       return;
     }
 
     const campaign = campaignIterator.next();
+    const isEnabled = campaign.isEnabled();
 
-    if (rainTriggered) {
+    if (rainTriggered && !isEnabled) {
       campaign.enable();
-      Logger.log(`✅ Rain ≥ ${RAIN_THRESHOLD} mm on at least one day – Campaign ENABLED`);
-    } else {
+      Logger.log(`Campaign enabled due to rainfall above threshold.`);
+    } else if (!rainTriggered && isEnabled) {
       campaign.pause();
-      Logger.log(`⏸️ No day had ≥ ${RAIN_THRESHOLD} mm – Campaign PAUSED`);
+      Logger.log(`Campaign paused due to lack of rainfall above threshold.`);
+    } else {
+      Logger.log(`No action taken. Campaign is already in the correct state (${isEnabled ? "ENABLED" : "PAUSED"}).`);
     }
 
-  } catch (e) {
-    Logger.log(`❌ Error: ${e}`);
+  } catch (error) {
+    Logger.log(`Error occurred while processing the script: ${error.message}`);
   }
 }
