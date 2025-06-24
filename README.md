@@ -23,26 +23,26 @@ This script helps marketers:
 
 ## 🌦️ Rain Intensity Reference (Based on DMI)
 
-| Danish Term           | English Equivalent     | Defined Intensity             |
-|------------------------|------------------------|-------------------------------|
-| Let regn              | Light rain             | Less than 2.5 mm/hour         |
-| Moderat regn          | Moderate rain          | 2.5–7.6 mm/hour               |
-| Kraftig regn          | Heavy rain             | More than 7.6 mm/hour         |
-| Skybrud               | Cloudburst             | ≥ 15 mm in 30 minutes         |
-| Voldsomt skybrud      | Extreme cloudburst     | ≥ 30 mm in 30 minutes         |
+| Danish Term        | English Equivalent  | Defined Intensity         |
+|--------------------|---------------------|----------------------------|
+| Let regn           | Light rain          | Less than 2.5 mm/hour     |
+| Moderat regn       | Moderate rain       | 2.5–7.6 mm/hour           |
+| Kraftig regn       | Heavy rain          | More than 7.6 mm/hour     |
+| Skybrud            | Cloudburst          | ≥ 15 mm in 30 minutes     |
+| Voldsomt skybrud   | Extreme cloudburst  | ≥ 30 mm in 30 minutes     |
 
 ---
 
 ## 🧠 Google Ads Campaign Type Support
 
-| **Campaign Type**     | **Pause / Enable** | **Adjust Bids** | **Weather Logic Possible?** | **Notes**                                |
-|-----------------------|--------------------|------------------|------------------------------|------------------------------------------|
-| **Search**            | ✅ Yes             | ✅ Yes           | ✅ Fully Supported           | Best support for weather automation      |
-| **Display**           | ✅ Yes             | ❌ No            | ✅ Limited                   | No bid control, only campaign toggling   |
-| **Shopping (Standard)** | ✅ Yes           | ⚠️ Some          | ✅ With Manual Bidding       | Avoid Smart Shopping for more control    |
-| **Performance Max**   | ✅ Yes             | ❌ No            | ⚠️ Campaign-Level Only       | Fully automated; limited access          |
-| **Video (YouTube)**   | ✅ Yes             | ❌ No            | ⚠️ Campaign-Level Only       | Cannot adjust placements or bids         |
-| **App Campaigns**     | ✅ Yes             | ❌ No            | ⚠️ Campaign-Level Only       | Good for basic enable/pause by weather   |
+| Campaign Type         | Pause / Enable | Adjust Bids | Weather Logic Possible? | Notes                                  |
+|-----------------------|----------------|-------------|--------------------------|----------------------------------------|
+| Search                | ✅ Yes         | ✅ Yes      | ✅ Fully Supported       | Best support for weather automation    |
+| Display               | ✅ Yes         | ❌ No       | ✅ Limited               | No bid control, only campaign toggling |
+| Shopping (Standard)   | ✅ Yes         | ⚠️ Some     | ✅ With Manual Bidding   | Avoid Smart Shopping for more control  |
+| Performance Max       | ✅ Yes         | ❌ No       | ⚠️ Campaign-Level Only   | Fully automated; limited access        |
+| Video (YouTube)       | ✅ Yes         | ❌ No       | ⚠️ Campaign-Level Only   | Cannot adjust placements or bids       |
+| App Campaigns         | ✅ Yes         | ❌ No       | ⚠️ Campaign-Level Only   | Good for basic enable/pause by weather |
 
 ---
 
