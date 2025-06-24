@@ -33,16 +33,16 @@ This script helps marketers:
 
 ---
 
-## 🧠 Google Ads Campaign Type Support
+## Google Ads Campaign Type Support
 
 | Campaign Type         | Pause / Enable | Adjust Bids | Weather Logic Possible? | Notes                                  |
 |-----------------------|----------------|-------------|--------------------------|----------------------------------------|
-| Search                | ✅ Yes         | ✅ Yes      | ✅ Fully Supported       | Best support for weather automation    |
-| Display               | ✅ Yes         | ❌ No       | ✅ Limited               | No bid control, only campaign toggling |
-| Shopping (Standard)   | ✅ Yes         | ⚠️ Some     | ✅ With Manual Bidding   | Avoid Smart Shopping for more control  |
-| Performance Max       | ✅ Yes         | ❌ No       | ⚠️ Campaign-Level Only   | Fully automated; limited access        |
-| Video (YouTube)       | ✅ Yes         | ❌ No       | ⚠️ Campaign-Level Only   | Cannot adjust placements or bids       |
-| App Campaigns         | ✅ Yes         | ❌ No       | ⚠️ Campaign-Level Only   | Good for basic enable/pause by weather |
+| Search                | Yes            | Yes         | Fully Supported          | Best support for weather automation    |
+| Display               | Yes            | No          | Limited                  | No bid control, only campaign toggling |
+| Shopping (Standard)   | Yes            | Some        | With Manual Bidding      | Avoid Smart Shopping for more control  |
+| Performance Max       | Yes            | No          | Campaign-Level Only      | Fully automated; limited access        |
+| Video (YouTube)       | Yes            | No          | Campaign-Level Only      | Cannot adjust placements or bids       |
+| App Campaigns         | Yes            | No          | Campaign-Level Only      | Good for basic enable/pause by weather |
 
 ---
 
