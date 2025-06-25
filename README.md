@@ -1,15 +1,15 @@
-# 🌧️ Weather-Based Google Ads Campaign Trigger
+# Weather-Based Google Ads Campaign Trigger
 
 This project is a lightweight automation system using **Google Ads Scripts (JavaScript)** to dynamically enable or pause ad campaigns based on real-world rainfall data. It integrates with the **Visual Crossing Weather API** and follows rainfall thresholds inspired by the **Danish Meteorological Institute (DMI)**.
 
 ---
 
-## 🔍 Overview
+## Overview
 
 This script helps marketers:
-- ✅ **Enable** campaigns automatically when recent rainfall exceeds a defined threshold (e.g., 20 mm/day)
-- ⏸️ **Pause** campaigns when conditions are dry
-- 📈 Deliver smarter, more context-aware ads based on weather events
+- **Enable** campaigns automatically when recent rainfall exceeds a defined threshold (e.g., 20 mm/day)
+- **Pause** campaigns when conditions are dry
+- **Deliver** smarter, more context-aware ads based on weather events
 
 ---
 
@@ -21,7 +21,7 @@ This script helps marketers:
 
 ---
 
-## 🌦️ Rain Intensity Reference (Based on DMI)
+## Rain Intensity Reference (Based on DMI)
 
 | Danish Term        | English Equivalent  | Defined Intensity         |
 |--------------------|---------------------|----------------------------|
@@ -46,7 +46,7 @@ This script helps marketers:
 
 ---
 
-## 📁 Files Included
+## Files Included
 
 - `weather_trigger.js` – Core automation script for Google Ads
 - `test_weather_api.py` – Python tool to test API key and rainfall data before deployment
@@ -58,7 +58,7 @@ This script helps marketers:
 
 ---
 
-## 🧪 API Testing (Optional Python Script)
+## API Testing (Optional Python Script)
 
 Before deploying the Ads script, test your API setup using the included Python script:
 
