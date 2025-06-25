@@ -13,7 +13,7 @@ This script helps marketers:
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. Fetches rainfall data from the past 3 days via the Visual Crossing API
 2. Checks if rainfall on any day exceeds the defined threshold
