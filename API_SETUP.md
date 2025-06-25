@@ -1,11 +1,11 @@
 
-# 🔑 How to Get a Free Visual Crossing Weather API Key
+# How to Get a Free Visual Crossing Weather API Key
 
 To use this script, you need an API key from [Visual Crossing Weather](https://www.visualcrossing.com/), which offers a free tier suitable for testing and light use.
 
 ---
 
-## 📝 Step-by-Step Instructions
+## Step-by-Step Instructions
 
 1. Go to: [https://www.visualcrossing.com/weather-data-editions](https://www.visualcrossing.com/weather-data-editions)
 2. Click **“Sign Up Free”** and create an account.
@@ -20,7 +20,7 @@ const API_KEY = 'YOUR_API_KEY_HERE';
 
 ---
 
-## 📋 Notes
+## Notes
 
 - The free tier allows up to **1,000 API calls/day** (as of 2025)
 - Supports both **daily and hourly** weather data
@@ -28,7 +28,7 @@ const API_KEY = 'YOUR_API_KEY_HERE';
 
 ---
 
-## 📂 Where to Place the Key
+## Where to Place the Key
 
 In the `weather_trigger.js` script:
 
