@@ -64,3 +64,10 @@ Before deploying the Ads script, test your API setup using the included Python s
 
 ```bash
 python test_weather_api.py
+
+## Contact
+
+For questions, feedback, or collaboration:
+
+**rafaelahmedr@gmail.com**
+
